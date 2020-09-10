@@ -10,6 +10,8 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
+            Window x = new Window();
+
         }
     }
 }
