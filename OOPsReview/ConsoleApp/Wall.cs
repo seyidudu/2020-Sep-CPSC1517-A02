@@ -16,15 +16,16 @@ namespace ConsoleApp
 
         private decimal _Height;
         private decimal _Width;
-        private string _RightOrLeft;
+
 
         public decimal Height
         {
             get { return _Height; }
-            set {
-                if (string.IsNullOrEmpty(null))
+            set
+            {
+                if (value <= 0.0m)
                 {
-                    throw new Exception("Room must have a name");
+                    throw new Exception("Height can not be 0 or less than 0.");
                 }
                 else
                 {
@@ -38,9 +39,9 @@ namespace ConsoleApp
             get { return Width; }
             set
             {
-                if (string.IsNullOrEmpty(null))
+                if (value <= 0.0m)
                 {
-                    throw new Exception("Room must have a name");
+                    throw new Exception("Width can not be 0 or less than 0.");
                 }
                 else
                 {
@@ -49,39 +50,20 @@ namespace ConsoleApp
             }
         }
 
-        public decimal RightOrLeft
-        {
-            get { return RightOrLeft; }
-            set
-            {
-                if (string.IsNullOrEmpty(null))
-                {
-                    throw new Exception("Room must have a name");
-                }
-                else
-                {
-                    _RightOrLeft = value;
-                }
-            }
-        }
-
-
-
-        public Door()
+        public Wall()
         {
             Width = 1.2m;
             Height = 1.75m;
-            RightOrLeft = "R";
-
-
-
         }
-        public Door(decimal width, decimal height, string rightorleft, string material)
+        public Wall(decimal width, decimal height)
         {
 
             Width = width;
             Height = height;
-            RightOrLeft = rightorleft;
-            Material = material;
         }
+        public decimal WallArea()
+        {
+            return Width * Height;
+        }
+    }
 }
