@@ -138,6 +138,7 @@ namespace ConsoleApp
         //{
         //  your code
         //}
+        // NOte: there is no data type
 
         // Constructors are OPTIONAL
         // If a class DOES NOT have a constructor then the system 
@@ -146,7 +147,63 @@ namespace ConsoleApp
         // this situation of no constructor(s) is often rfred to as 
         // using a "system" constructor
 
-        //
+        // If you code a constructor, you MUST code any and all constructor(s) needed by your class in your programming
 
+        // There sre two common type pf constructors
+        // Default constructor
+        // Greedy constructor
+
+        // Default constructor
+        // this version of constructor takes NO parameters
+        // this vrsion of constructor usually  similates tyhe "system" constructor
+        // you CAN if you wish assign values to your class data members/properties
+        //  that are NOT the system defaulkt for the datatype
+        // this constructor is called  on your behave when an instance of the class
+        // is requested by the outside user.
+        // you CAN NOT call a constructor like a method
+
+        public Window()
+        {
+            // techincally numerics are set to zero when they sare declared
+            // logivally in this class the numeric fields should NOT be zero
+            // therefore, we will set the numeric fields to a literal not equal to zero
+
+            // one could assign value directly to private member within the class
+            // a preferred method is to use the peoperties instead of the private data members
+            // why? is that the properties MAY have validation to ensure acceptable
+            //      values exist for the data.
+            //      also, auto implemented properties have no direct data members
+
+            Height = 0.9m; // the assumed window is .9 meters
+            Width = 1.2m; //
+            NumberOfPanes = 1;
+
+        }
+        // Greedy constructor
+        // takes in a value for each data member/properrty in the class
+        // each data member/property us assigned the appropriate incoming parameter value
+
+        public Window(decimal width, decimal height, int numberofpanes, string manufacturer)
+        {
+            Width = width;
+            Height = height;
+            NumberOfPanes = numberofpanes;
+            Manufacturer = manufacturer;
+
+        }
+        // Behaviours
+        // are also knowns as methods
+        // they are optional
+
+        // Area of a window
+        public  decimal WindowArea()
+        {
+            return Height * Width;
+        }
+
+        public decimal WindowPerimeter()
+        {
+            return 2 * (Height + Width);
+        }
     }
 }
