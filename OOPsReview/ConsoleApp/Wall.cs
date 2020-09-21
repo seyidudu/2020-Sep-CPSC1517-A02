@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
-    class Wall
+    public class Wall
     {
         // Height, Width
         // Height and Width > 0.0

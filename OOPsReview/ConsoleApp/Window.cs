@@ -205,5 +205,10 @@ namespace ConsoleApp
         {
             return 2 * (Height + Width);
         }
+        //Cost of Window
+        public decimal WindowCost(decimal sqlmeterprice)
+        {
+            return sqlmeterprice * WindowArea();
+        }
     }
 }
