@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/_Layout.cshtml";
+    Page.Title = "TextBox Sample";
+    string entereddata = "";
+}
+@if (IsPost)
+{
+    entereddata = Request.Form["csscodingname"];
+}
+@section banner {<h3>Form UsingTextBox</h3>}
+<div>
+    <form id="theForm" method="post">
+        <table>
+            <tr>
+                <td>Enter your name:</td>
+                <td><input type="text" id="javascriptname" name="csscodingname" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" id="PressMe" name="PressMe">Submit</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>@entereddata</label></td>
+            </tr>
+        </table>
+        
+    </form>
+</div>
