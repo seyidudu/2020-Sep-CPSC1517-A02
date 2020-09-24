@@ -1,11 +1,45 @@
 ﻿@{
+    //when this page esecute, the execution is physically top to bottom
+    //this requires the developer to properly create logic so that the
+    //  proper criterial paths are produced
     Layout = "~/_Layout.cshtml";
     Page.Title = "TextBox Sample";
     string entereddata = "";
 }
 @if (IsPost)
 {
-    entereddata = Request.Form["csscodingname"];
+    //IsPost test whether the page is 1st time or a post back from the browser
+    //the value of the flag will false on the 1st time
+    //on folowup post backs the flag will be true
+
+    //extract any need information (data) from the from
+    //extracting data from a control uses Request.Form["controlname"]
+    //this is C# coding so case sensitive and spelling is important
+    //if a controlname is NOT found, you will receive a value of null
+
+    //extract data
+    var name = Request.Form["cscodingname"];
+    var email = Request.Form["Email"];
+    //note the name PressMe has been given to both buttons
+    //the data return from the control will be te data assigned to
+    // the value parameter
+    //thus, thebutton will have a value of either name or email, NOT both
+    var thebutton = Request.Form["PressMe"];
+
+    //start your testing for your criterial path
+    if (thebutton.Equals("name"))
+    {
+        entereddata = name;
+    }
+
+    else
+    {
+        entereddata = email;
+    }
+}
+else
+{
+    entereddata = "you have requested this page for the 1st time";
 }
 @section banner {<h3>Form UsingTextBox</h3>}
 <div>
@@ -13,17 +47,23 @@
         <table>
             <tr>
                 <td>Enter your name:</td>
-                <td><input type="text" id="javascriptname" name="csscodingname" /></td>
+                <td><input type="text" id="javascriptname" name="cscodingname" /></td>
+            </tr>
+            <tr>
+                <td>Enter your email:</td>
+                <td><input type="text" id="Email" name="Email" /></td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <button type="submit" id="PressMe" name="PressMe">Submit</button>
+                    <button type="submit" id="PressMe" name="PressMe" value="name">Display Name</button>&nbsp;&nbsp;&nbsp;
+                    <button type="submit" id="PressMe" name="PressMe" value="email">Display Email</button>
+
                 </td>
             </tr>
             <tr>
                 <td colspan="2"><label>@entereddata</label></td>
             </tr>
         </table>
-        
+
     </form>
 </div>
