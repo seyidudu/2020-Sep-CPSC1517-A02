@@ -1,9 +1,11 @@
 ﻿@{
     Layout = "~/_Layout.cshtml";
     Page.Title = "CheckBox Sample";
-    //
-    //else of the if(IsPost)
-    string choices = Request.Form["CheckBoxroup"];
+    //the 1st time through the form has yet to be created
+    //any reference to a control on the 1t time through aill be null
+    //remember to initialize the associate global variable in the
+    // else of the if(IsPost)
+    string choices = Request.Form["CheckBoxGroup"];
 }
 
 @section banner {<h3>Form Using CheckBox</h3>}
@@ -49,7 +51,7 @@ else
             <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="PS4"
                    @(Array.IndexOf(choices.Split(','),"PS4") >= 0? "checked" : "") />PS4<br />
             <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="PC"
-                   @(Array.IndexOf(choices.Split(','),"Computetr") >= 0? "checked" : "") />Computetr<br />
+                   @(Array.IndexOf(choices.Split(','),"Computetr") >= 0? "checked" : "") />Computer<br />
             <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="Xbox"
                    @(Array.IndexOf(choices.Split(','),"Xbox") >= 0? "checked" : "") />XBox One<br />
             <input type="checkbox" name="CheckBoxGroup" id="CheckBoxGroup" value="Switch"
@@ -60,6 +62,6 @@ else
     </div>
     <div class="row"></div>
     <div class="offset-5">
-        <button type="button" name="theButton" id="theButton" value="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="theButton" id="theButton" value="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
