@@ -19,20 +19,20 @@ namespace ConsoleApp
         // PRIVATE DATA MEMBERS
         //      These are variables that are known ONLY within the class
         //      will be used for fully implemented properties
-        //      will be used for locak class only data
+        //      will be used for locaL class only data
         private string _Manufacturer;
         private decimal _Height;
 
-        // PRIVATE DATA MEMBERS
+        // PUBLIC DATA MEMBERS
         //      Are known within the class and outside of the class
         //      public data members can be altered by code within and without side the class
         //      It is preferred to use properties instead of public data members
         
         //PROPERTIES
         //OPTIONAL
-        //  Properties can be imp;lemented in two ways
+        //  Properties can be implemented in two ways
         //  a) Fully Implemented property
-        //      Used because there us additonal code/lgic use in processing the data
+        //      Used because there is additonal code/logic use in processing the data
         //  b) Auto Implemented Property
         //      Used when there is no need for additional code/logic
         //      When the data is simply saved/stored
@@ -120,7 +120,7 @@ namespace ConsoleApp
 
         // WHat about nullable numerics
         // Do we need to test for a null value to be used for missing incoming data?
-        // No, you don not have to code a fully implemented property for a nullable numeric
+        // No, you do not have to code a fully implemented property for a nullable numeric
         // Numerics have a default of Zero
         // Numerics can ONLY store a numeric (unless nullable)
         // Numerics can BE NULL if declared as nullable
@@ -129,7 +129,7 @@ namespace ConsoleApp
 
         public int NumberOfPanes { get; set;}
         // Constructors
-        // a constructor is"a method" that guarantees that the newly created instance of this class will AWLAYS be created
+        // a constructor is"a method" that guarantees that the newly created instance of this class will ALWAYS be created
         // "a known state"
         // constructors do not use a return data type
 
@@ -142,34 +142,34 @@ namespace ConsoleApp
 
         // Constructors are OPTIONAL
         // If a class DOES NOT have a constructor then the system 
-        // will generate the class instance using the datatype defauls
+        // will generate the class instance using the datatype defaults
         //for your private data memebers and auto implemented properties
-        // this situation of no constructor(s) is often rfred to as 
+        // this situation of no constructor(s) is often refered to as 
         // using a "system" constructor
 
         // If you code a constructor, you MUST code any and all constructor(s) needed by your class in your programming
 
-        // There sre two common type pf constructors
+        // There are two common type pf constructors
         // Default constructor
         // Greedy constructor
 
         // Default constructor
         // this version of constructor takes NO parameters
-        // this vrsion of constructor usually  similates tyhe "system" constructor
+        // this version of constructor usually  simulates the "system" constructor
         // you CAN if you wish assign values to your class data members/properties
-        //  that are NOT the system defaulkt for the datatype
+        //  that are NOT the system default for the datatype
         // this constructor is called  on your behave when an instance of the class
         // is requested by the outside user.
         // you CAN NOT call a constructor like a method
 
         public Window()
         {
-            // techincally numerics are set to zero when they sare declared
-            // logivally in this class the numeric fields should NOT be zero
+            // techincally numerics are set to zero when they are declared
+            // logically in this class the numeric fields should NOT be zero
             // therefore, we will set the numeric fields to a literal not equal to zero
 
             // one could assign value directly to private member within the class
-            // a preferred method is to use the peoperties instead of the private data members
+            // a preferred method is to use the properties instead of the private data members
             // why? is that the properties MAY have validation to ensure acceptable
             //      values exist for the data.
             //      also, auto implemented properties have no direct data members
