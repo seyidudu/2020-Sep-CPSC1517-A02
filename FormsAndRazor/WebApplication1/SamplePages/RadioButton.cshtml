@@ -1,7 +1,64 @@
 ﻿@{
     Layout = "~/_Layout.cshtml";
     Page.Title = "RadioButton Sample";
+    //global variables
+    string language = Request.Form["LanguageGroup"];
+    string script = Request.Form["ScriptGroup"];
 }
 @section banner {<h3>Form Using RadioButtons</h3>}
+@*SETUP MY PROCESSING CODE*@
+@if (IsPost)
+{
+    if(language.IsEmpty() || script.IsEmpty())
+    {
+    <p> <span style="color:firebrick">Make a selection from both programs and coding.</span></p>
+    }
+    else
+    {
+
+    }
+}
+else
+{
+    if(language.Equals("C#", StringComparison.OrdinalIgnoreCase))
+    {
+            <p>you will greatly enjoy the CPSC 1517 coure as we use c#</p>
+        }
+    else
+        {
+            <p>too bad. UNfortunately the CPSC1517 does not use @language</p>
+        }
+}
+
+<form id="theForm" method="post">
+    <div class="row">
+        <div class="offset-1">
+            <label for="LanguageGroup">Select your favourite progranning language</label><br />
+            <input type="radio" name="LanguageGroup" id="LanguageGroup" value="C#"
+                   checked="@(language.Equals("C#")?true:false)" />C# <br />
+            <input type="radio" name="LanguageGroup" id="LanguageGroup" value="Cobol" />
+            checked="@(language.Equals("Cobol")?true:false)"/>Cobol <br />
+            <input type="radio" name="LanguageGroup" id="LanguageGroup" value="VB" />
+            checked="@(language.Equals("VB")?true:false)"/>VB <br />
+            <input type="radio" name="LanguageGroup" id="LanguageGroup" value="Fortran" />
+            checked="@(language.Equals("Fortran")?true:false)"/>Fortran <br />
+            <br />
+            <label for="ScriptGroup">Select your favourite Scripting Code</label><br />
+            <input type="radio" name="ScriptGroup" id="ScriptGroup" value="JS" />
+            checked="@(script.Equals("JS")?true:false)"/>JS <br />
+            <input type="radio" name="ScriptGroup" id="ScriptGroup" value="Razor" />
+            checked="@(script.Equals("Razor")?true:false)"/>Razor <br />
+            <input type="radio" name="ScriptGroup" id="ScriptGroup" value="PHP" />
+            checked="@(script.Equals("PHP")?true:false)"/>PHP <br />
+
+        </div>
+    </div>
+    <div>
+        <div class="offset-2">
+            <button type="button" name="theButton" id="theButton" value="submit">Submit</button>
+        </div>
+
+    </div>
+</form>
 
 

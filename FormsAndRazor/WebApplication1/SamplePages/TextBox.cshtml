@@ -5,6 +5,8 @@
     Layout = "~/_Layout.cshtml";
     Page.Title = "TextBox Sample";
     string entereddata = "";
+    string name = "";
+    string email = "";
 }
 @if (IsPost)
 {
@@ -18,8 +20,8 @@
     //if a controlname is NOT found, you will receive a value of null
 
     //extract data
-    var name = Request.Form["cscodingname"];
-    var email = Request.Form["Email"];
+     name = Request.Form["cscodingname"];
+     email = Request.Form["Email"];
     //note the name PressMe has been given to both buttons
     //the data return from the control will be te data assigned to
     // the value parameter
