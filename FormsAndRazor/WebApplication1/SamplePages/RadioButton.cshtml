@@ -2,33 +2,48 @@
     Layout = "~/_Layout.cshtml";
     Page.Title = "RadioButton Sample";
     //global variables
-    string language = Request.Form["LanguageGroup"];
+    string language = "";
     string script = Request.Form["ScriptGroup"];
 }
 @section banner {<h3>Form Using RadioButtons</h3>}
 @*SETUP MY PROCESSING CODE*@
 @if (IsPost)
 {
-    if(language.IsEmpty() || script.IsEmpty())
+    language = Request.Form["LanguageGroup"];
+    //did user actually select a radio button
+    if (language.IsEmpty() || script.IsEmpty())
     {
-    <p> <span style="color:firebrick">Make a selection from both programs and coding.</span></p>
+        <p> <span style="color:firebrick">Make a selection from both programs and coding.</span></p>
     }
     else
     {
-
-    }
-}
-else
-{
-    if(language.Equals("C#", StringComparison.OrdinalIgnoreCase))
-    {
+        if (language.Equals("c#", StringComparison.OrdinalIgnoreCase))
+        {
             <p>you will greatly enjoy the CPSC 1517 coure as we use c#</p>
         }
-    else
+        else
         {
-            <p>too bad. UNfortunately the CPSC1517 does not use @language</p>
+            <p>too bad. Unfortunately the CPSC1517 does not use @language</p>
         }
+        if (script.Equals("Razor", StringComparison.OrdinalIgnoreCase))
+        {
+            <p>you will greatly enjoy the CPSC 1517 coure as we use c#</p>
+        }
+        else
+        {
+            <p>too bad. UNfortunately the CPSC1517 does not use @script</p>
+        }
+    }
 }
+
+else
+{
+    //the else is a great place to do initialization to your form
+    // for the 1st pass
+    language = "";
+    script = "";
+}
+
 
 <form id="theForm" method="post">
     <div class="row">
@@ -55,7 +70,7 @@ else
     </div>
     <div>
         <div class="offset-2">
-            <button type="button" name="theButton" id="theButton" value="submit">Submit</button>
+            <button type="submit" name="theButton" id="theButton" value="submit">Submit</button>
         </div>
 
     </div>
