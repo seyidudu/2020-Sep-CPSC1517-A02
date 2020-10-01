@@ -1,0 +1,123 @@
+﻿@{
+    Layout = "~/_Layout.cshtml";
+    Page.Title = "Simple Query";
+    string regionidarg = "";
+    string regionid = "";
+    string description = "";
+}
+
+@section banner {
+    <div>
+        <h3>Form Using RadioButtons</h3>
+    </div>
+}
+@if (IsPost)
+{
+    var thebutton = Request.Form["theButton"];
+    regionidarg = Request.Form["RegionIDArg"];
+
+    if (thebutton.Equals("clear"))
+    {
+        // the clear button processing
+        regionidarg = "";
+        regionid = "";
+        description = "";
+    }
+    else
+    {
+        if (regionidarg.IsEmpty())
+        {
+
+            <p> <span style="color:firebrick">You did not supplied a search arguement</span></p>
+            regionidarg = "";
+            regionid = "";
+            description = "";
+        }
+        else
+        {
+            //you could do further validation in ensure you have a viable value
+            //assume at this point you have a valid arguement value
+
+            //access the database to do the query
+
+            //step 1
+            //connect to your database
+            //use the connecion string name in our web conncwtion string
+            var db = Database.Open("NWDB");
+
+            //step 2
+            //create the database sql query command
+            //placeholders will be used for input data values
+            //placeholders start at 0 and increment by 1
+            //placeholders must linerarly be used in your command
+            // placeholders syntax @@ @1 @2 ...
+            var querycommand = @"SELECT RegionID, RegionDescription
+                                 From Region
+                                 WHERE RegionID = @0";
+
+            //step 3
+            //execute the query command
+            //there are 3 ways to execute a query DEPENDING on the EXPECTED
+            // number of returned records/value
+            // a) a single record returned uses QuerySingle()
+            // b) multiple records (0,1 or more returned uses Query()
+            // c) a single value returned(you will NOT have multiple attributes returned)
+            //   uses QueryValue()
+
+            //this example is a query by primary key
+            //therefore you can expect ONLY ONE record to be record
+            var results = db.QuerySingle(querycommand, regionidarg);
+
+            //test your query results
+            if(results == null)
+            {
+                //if NO record was returned your resuls for QuerySingle()
+                //  will be null
+                regionid = "";
+                description = "";
+                <p>No record found for region id: @regionidarg</p>
+            }
+            else 
+            { <p>Found</p>
+                //There are two ways to retrieve a value from a queried record
+                // a) access using an index
+
+                regionid = results[0].ToString(); //PKey is an int
+
+                // b) access using
+                description = results.RegionDescription;
+
+            }
+        }
+    }
+
+}
+<form id="theForm" method="post">
+    <div class="row">
+        <div class="vol-3">
+            <label for="RegionIDArg">Enter a Region ID:</label>&nbsp;&nbsp;
+            <input type="number" name="RegionIDArg" id="RegionIDArg"
+                   value="@regionidarg" placeholder="enter region id" />
+            <br /><br />
+            <button type="submit" name="theButton" id="theButton" value="submit"
+                    class="btn btn-danger">
+                Submit
+            </button>
+            <button type="submit" name="theButton" id="theButton" value="clear"
+                    class="btn btn-light">
+                Clear
+            </button>
+            <div class="col-8">
+                <label for="RegionID">Enter a Region ID:</label>&nbsp;&nbsp;
+                <input type="text" name="RegionID" id="RegionID"
+                       value="@regionid" placeholder="enter region id" />
+                <br /><br />
+                <label for="Description">Enter a Region Descriptionn:</label>&nbsp;&nbsp;
+                <input type="text" name="Description" id="Description"
+                       value="@description" placeholder="enter region id" />
+                <br /><br />
+            </div>
+        </div>
+    </div>
+
+</form>

@@ -42,7 +42,6 @@ C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\W
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\bin\System.Web.WebPages.Deployment.xml
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\bin\System.Web.WebPages.Razor.xml
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\obj\Debug\WebApp.csprojAssemblyReference.cache
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\obj\Debug\WebApp.csproj.CopyComplete
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\obj\Debug\WebApplication1.dll
@@ -51,3 +50,8 @@ C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\W
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\bin\roslyn\System.Memory.dll
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\bin\roslyn\System.Numerics.Vectors.dll
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\bin\WebMatrix.Data.dll
+C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\bin\WebMatrix.WebData.dll
+C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\bin\WebMatrix.Data.xml
+C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\bin\WebMatrix.WebData.xml
+C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\FormsAndRazor\WebApplication1\obj\Debug\WebApp.csprojAssemblyReference.cache
