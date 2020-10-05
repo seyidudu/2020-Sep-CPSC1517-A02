@@ -20,14 +20,14 @@
     var results = db.Query(productquery, incomingDataValue);
 
     //Create an instance of the webGrid
-    //notice the colle tion(results is passed at the time of instantiation
+    //notice the colle tion(results) is passed at the time of instantiation
     var gridinstance = new WebGrid(results);
 }
 
 @section banner {
     <div><h3>Multi-Record query</h3></div>
     <div class="row">
-        @gridinstance;
+        @gridinstance.GetHtml();
 
     </div>
     }

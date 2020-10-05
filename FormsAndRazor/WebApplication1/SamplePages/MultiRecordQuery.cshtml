@@ -52,6 +52,7 @@ ORDER BY CategoryName";
 }
 else
 {
+    //intialize your form for the 1st pass
     categoryselection = "0";
 }
 
@@ -60,7 +61,7 @@ else
         <div class="offset-1">
             <label for="CategoryList">Select a category</label>
             <select name="CategoryList" id="CategoryList">
-                <option value="0">Select ---</option>
+                <option value="0">Select ---</option> 
                 @*loopthrough the collection of records in your ddl Results
                     Create a line in the ddl for each item ub the collction
                     referencing an item column of the collcetions can be
