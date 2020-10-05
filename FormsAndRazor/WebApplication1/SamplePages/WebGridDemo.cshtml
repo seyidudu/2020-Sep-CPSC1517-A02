@@ -1,0 +1,33 @@
+﻿@{
+
+    Layout = "~/_Layout.cshtml";
+    Page.Title = "WebGrid Demo";
+
+    // to receive data fro anohter poage via the GETHTML()
+    //we will use Request.QueryString["label"]
+    // if the "label" does not exist as the page is retrieved
+    // then the returned value of .QueryString is null
+    var incomingDataValue = Request.QueryString["cid"];
+    if (string.IsNullOrEmpty(incomingDataValue))
+    {
+
+        Response.Redirect("MultiRecordQuery.cshtml");
+    }
+    var db = Database.Open("NWDB");
+    var productquery = @"SELECT ProductID, ProductName, UnitPrice, QuantityPerUnit, Discontinued
+                        FROM Products
+                        WHERE CategoryID = @0";
+    var results = db.Query(productquery, incomingDataValue);
+
+    //Create an instance of the webGrid
+    //notice the colle tion(results is passed at the time of instantiation
+    var gridinstance = new WebGrid(results);
+}
+
+@section banner {
+    <div><h3>Multi-Record query</h3></div>
+    <div class="row">
+        @gridinstance;
+
+    </div>
+    }
