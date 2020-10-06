@@ -40,7 +40,7 @@
     //notice the colle tion(results) is passed at the time of instantiation
     //to set your page size (rows per page) you need to do this on the
     // new command NOT within GetHtml()
-    var gridinstance = new WebGrid(results);
+    var gridinstance = new WebGrid(results, rowsPerPage:3);
 }
 
 @section banner {
@@ -50,7 +50,7 @@
         <h5>Category:@categoryname</h5>
     </div>
     <div class="row">
-        <div class="offset-1">
+        <div class="offset-1 col-10">
             @*customize the grid appear*@
             @gridinstance.GetHtml(
            tableStyle: "table table-striped table-bordered table-hover",
