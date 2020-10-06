@@ -46,6 +46,12 @@ ORDER BY CategoryName";
             //<p> <span style="color:green">there are @results.Count() from the selection in the category List</span></p>
             // passing data to another page
             // data passed this way is sdone via the html GETHTML
+            //syntax
+            //pagename.ext?label=value&label2=value2....
+            //      pagename.ext is the page
+            //      ?indicates the parameter(s) to follow
+            //      parameter:label=value
+            //      & seperates mutliple parameters
             Response.Redirect("WebGridDemo.cshtml?cid=" + categoryselection);
         }
     }
@@ -68,6 +74,7 @@ else
                     done either with an index or propertname technique*@
                 @foreach (var item in ddlResults)
                 {// how to retain the current selection inside a ddl
+                    //test against the value property
                     if (item.CategoryID.ToString() == categoryselection)
                     {
                         <option value="@item.CategoryID" selected>@item.CategoryName</option>
@@ -76,7 +83,6 @@ else
                     {
                         <option value="@item.CategoryID">@item.CategoryName</option>
                     }
-
                 }
             </select>&nbsp;&nbsp;
             <button type="submit" name="myButton" id="myButton" value="submit" class="btn btn-danger">Submit</button>
