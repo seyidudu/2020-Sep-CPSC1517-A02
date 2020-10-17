@@ -18,7 +18,7 @@
 }
 <div class="form-group">
   
-    <form id="theForm" action="" method="post">
+    <form id="theForm" method="post">
         <div class="col-sm-3">
             <label id="forProductSearch">Product Name</label><br/>
             <input type="text" name="ProductSearch" value=" @productsearch"><br/><br/>
@@ -58,18 +58,18 @@
                 }
             }
         </div>
-      @*Since the Webgrid is in the form whicxh uses a methd:post, the webgrid paging is NOT working. 
-          WHY? Thwe webgrid uses a method get:. Thusw the conflict on inproper paging.
+      @*Since the Webgrid is in the form which uses a method:post, the webgrid paging is NOT working. 
+          WHY? The webgrid uses a method get:. Thus the conflict on inproper paging.
           
           To solve the problem we add the following script to cause a post to 
           happen on the webgrid's paging event.*@
-        <script type="text/javascript">
-            var links = $('a[href*=page],a[href*=sort]'), form = $('form');
-            links.click(function () {
-                form.attr("action", this.href);
-                $(this).attr("href", "javacscript:");
-                form.submit();
-            });
-        </script>
+    <script type="text/javascript">
+        var links = $('a[href*=page], a[href*=sort]'), form = $('form');
+        links.click(function () {
+            form.attr("action", this.href);
+            $(this).attr("href", "javascript:");
+            form.submit();
+        });
+    </script>
     </form>
 </div> 

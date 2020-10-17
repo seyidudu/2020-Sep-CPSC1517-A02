@@ -67,7 +67,7 @@
     {
         // a) could redirect to the search page
         // b) reset the web controls to the current database record
-        //  and  display an appropriate message
+        //  and display an appropriate message
         //  c) empty the web controls and display an appropriate message
 
         productid = "";
@@ -81,13 +81,97 @@
         reorderlevel = "";
         discontinued = "";
         <p>
-            <span style="color:blue;">Your cancel the operation. Retuen to search for another product</span>
+            <span style="color:firebrick;">Your cancel the operation. Return to search for another product</span>
             <a href="~/SamplePages/ProductSearch.cshtml">Go to Search</a>
         </p>
     }
     else if (thebutton.Equals("delete"))
     {
-        <p>Your delete code goes here</p>
+        if (string.IsNullOrEmpty(productid))
+        {
+            <p>
+                <span style="color:blue;">No product selected. Return to search for another product</span>
+                <a href="~/SamplePages/ProductSearch.cshtml">Go to Search</a>
+            </p>
+        }
+        else
+        {
+            try
+            {
+                // connect to database
+                // done above: no code necessary
+
+                // command
+                @*//scenario physical removal of the record
+                    var deletecommand = @"DELETE Products
+                                        WHERE ProductID = @0";
+                    //execution
+                    //the RETURNED value of the exection is the number of rows affected on the database
+                    int rowsaffected = db.Execute(deletecommand, productid);
+                    if (rowsaffected > 0)
+                    {
+                        //record found
+                            <p>
+                                <span style="color:forestgreen;">
+                                    Product removed Return to search for another product
+                                </span>
+                                <a href="~/SamplePages/ProductSearch.cshtml">Go to Search</a>
+                            </p>
+                    }
+                    else
+                    {
+                        //record not found
+                        <p>
+                            <span style="color:firebrick;">
+                                Update not done.
+                                No product called @productname with a product id of @productid
+                                was found on file. Return to seaerc for another product
+                            </span>
+                            <a href="~/SamplePages/ProductSearch.cshtml">Go to Search</a>
+                        </p>
+                        productid = "";
+                    }*@
+                //scenario logical removal of the record
+                var deletecommand = @"UPDATE Products
+                                    SET DISCONTINUED = 1
+                                    WHERE ProductID = @0";
+                //execution
+                //the RETURNED value of the exection is the number of rows affected on the database
+                int rowsaffected = db.Execute(deletecommand, productid);
+                if (rowsaffected > 0)
+                {
+                    //record found
+                    <p>
+                        <span style="color:forestgreen;">
+                            Product Discontinued. Return to search for another product
+                        </span>
+                        <a href="~/SamplePages/ProductSearch.cshtml">Go to Search</a>
+                    </p>
+                    discontinued = "0";
+                }
+                else
+                {
+                    //record not found
+                    <p>
+                        <span style="color:firebrick;">
+                            Update not done.
+                            No product called @productname with a product id of @productid
+                            was found on file. Return to search for another product
+                        </span>
+                        <a href="~/SamplePages/ProductSearch.cshtml">Go to Search</a>
+                    </p>
+                    productid = "";
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                <p>
+                    <span style = "color:firebrick;"> Error: @ex.Message </span>
+                </p>
+            }
+        }
     }
     else
     {
@@ -104,8 +188,10 @@
         if (string.IsNullOrEmpty(productid))
         {
             <p>
-                <span style="color:blue;">Your cancel the operation. Retuen to search for another product</span>
-                <a href="~/SamplePages/ProductSearch.cshtml">Go to Search</a>
+            <span style = "color:blue;"> No product selected. Return to search for another product</span>
+
+            <a href ="~/SamplePages/ProductSearch.cshtml"> Go to Search </a>
+
             </p>
         }
         else
@@ -115,50 +201,55 @@
                 // connect to database
                 // done above: no code necessary
 
-                // comand
+                // command
                 var updatecommand = @" UPDATE Products
-            SET ProductName = @0),
-                SupplierID = @1),
-                CategoryID = @2),
-                QuantityPerUnit = @3),
-                UnitPrice = @4),
-                UnitsInStock = @5),
-                UnitsOnOrder = @6),
-                ReorderLevel = @7),
-                Discontinued = @8)
-            WHERE ProductID = @9";
+                            SET ProductName = @0,
+                                SupplierID = @1,
+                                CategoryID = @2,
+                                QuantityPerUnit = @3,
+                                UnitPrice = @4,
+                                UnitsInStock = @5,
+                                UnitsOnOrder = @6,
+                                ReorderLevel = @7,
+                                Discontinued = @8
+                            WHERE ProductID = @9";
                 //execution
                 //the RETURNED value of the exection is the number of rows affected on the database
-                int rowaffected = db.Execute(updatecommand,
+                int rowsaffected = db.Execute(updatecommand, productname,
                                 int.Parse(supplierid) == 0 ? null : supplierid,
                                 int.Parse(categoryid) == 0 ? null : categoryid,
                                 string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
                                 string.IsNullOrEmpty(unitprice) ? "0.00" : unitprice,
                                 string.IsNullOrEmpty(unitsinstock) ? null : unitsinstock,
                                 string.IsNullOrEmpty(unitsonorder) ? null : unitsonorder,
-                                string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel, discontinued, productid);
-                if (rowaffected > 0)
+                                string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel,
+                                discontinued, productid);
+                if (rowsaffected > 0)
                 {
                     //record found
                     <p>
-                        <span style="color:forestgreen;">Product Updated</span>
+                    <span style = "color:forestgreen;"> Product Updated </span>
+
                     </p>
                 }
                 else
                 {
                     //record not found
                     <p>
-                        <span style="color:firebrick;">Update nit done. 
-                        No product called @productname with a product id of @productid</span>
-                            <a href="~/SamplePages/ProductSearch.cshtml">Go to Search</a>
+                    <span style = "color:firebrick;"> Update not done.
+                    No product called @productname with a product id of @productid</span>
+                    <a href = "~/SamplePages/ProductSearch.cshtml"> Go to Search</a>
+
                     </p>
+                    productid = "";
                 }
 
             }
             catch (Exception ex)
             {
                 <p>
-                    <span style="color:firebrick;">Error: exMessage</span>
+                <span style = "color:firebrick;" > Error: @ex.Message </span>
+
                 </p>
             }
         }
@@ -193,9 +284,9 @@ else //for IsPost
 <div class="form-group">
 
 
-    <form id="theForm" action="" method="post">
+    <form id="theForm" method="post">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6 text-right">
                 <label id="forProductID">Product ID</label><br />
                 <label id="forProductName">Product Name</label><br />
                 <label id="forSupplierList">Supplier</label><br />
