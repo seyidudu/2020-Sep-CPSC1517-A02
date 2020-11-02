@@ -41,8 +41,8 @@ namespace WebApp.SamplePages
                 List<DDLData> DDLCollection = new List<DDLData>();
                 //DDLCollection.Add(new DDLData(0, "select..."));
                 DDLCollection.Add(new DDLData(1, "COMP1008"));
-                DDLCollection.Add(new DDLData(2, "DMIT1508"));
-                DDLCollection.Add(new DDLData(3, "CPSC1517"));
+                DDLCollection.Add(new DDLData(3, "DMIT1508"));
+                DDLCollection.Add(new DDLData(2, "CPSC1517"));
                 DDLCollection.Add(new DDLData(4, "DMIT2018"));
 
 
@@ -155,7 +155,7 @@ namespace WebApp.SamplePages
             else
             {
                 numberchoice = int.Parse(CollectionList.SelectedValue);
-                RadioButtonListChoice.SelectedValue = CollectionList.ToString();
+                RadioButtonListChoice.SelectedValue = numberchoice.ToString();
             }
 
                 if (numberchoice == 2 || numberchoice == 4)
