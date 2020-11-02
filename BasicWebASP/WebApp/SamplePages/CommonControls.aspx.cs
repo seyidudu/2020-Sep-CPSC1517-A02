@@ -39,10 +39,11 @@ namespace WebApp.SamplePages
                 // class and use it with the LIst<T>
                 // the <T> in this example is the class DDLData
                 List<DDLData> DDLCollection = new List<DDLData>();
+                //DDLCollection.Add(new DDLData(0, "select..."));
                 DDLCollection.Add(new DDLData(1, "COMP1008"));
                 DDLCollection.Add(new DDLData(2, "DMIT1508"));
-                DDLCollection.Add(new DDLData(3, "DMIT2018"));
-                DDLCollection.Add(new DDLData(4, "CPSC1517"));
+                DDLCollection.Add(new DDLData(3, "CPSC1517"));
+                DDLCollection.Add(new DDLData(4, "DMIT2018"));
 
 
                 // sorting a List<T>
@@ -140,6 +141,40 @@ namespace WebApp.SamplePages
                                       ". This matches the radio button choice item value " +
                                       RadioButtonListChoice.SelectedValue;
             }
+        }
+
+        protected void LinkButtonChoice_Click(object sender, EventArgs e)
+        {
+            int numberchoice = 0;
+            //SINCE there is a prompy line on the dropdownlist
+            //validating
+            if (CollectionList.SelectedIndex  == 0)
+            {
+                MessageLabel.Text = "You need to make a seletion from the dropdownlist";
+            }
+            else
+            {
+                numberchoice = int.Parse(CollectionList.SelectedValue);
+                RadioButtonListChoice.SelectedValue = CollectionList.ToString();
+            }
+
+                if (numberchoice == 2 || numberchoice == 4)
+                {
+                    CheckBoxChoice.Checked = true;
+                }
+                else
+                {
+                    CheckBoxChoice.Checked = false;
+                }
+
+                NumberChoice.Text = numberchoice.ToString();
+
+                DisplayReadOnly.Text = CollectionList.SelectedItem.Text +
+                                      " at index " + CollectionList.SelectedIndex +
+                                      " having a value of " + CollectionList.SelectedValue +
+                                      ". This matches the radio button choice item value " +
+                                      RadioButtonListChoice.SelectedValue;
+            
         }
     }
 }

@@ -27,8 +27,8 @@
             <div class="col-6">
                 <asp:RadioButtonList ID="RadioButtonListChoice" runat="server" RepeatDirection="Horizontal" CellSpacing="-1" RepeatLayout="Flow">
                     <asp:ListItem Value="1">&nbsp;COMP1008&nbsp;</asp:ListItem>
-                    <asp:ListItem Value="2">&nbsp;CPSC1517&nbsp;</asp:ListItem>
-                    <asp:ListItem Value="3">&nbsp;DMIT1508&nbsp;</asp:ListItem>
+                    <asp:ListItem Value="2">&nbsp;DMIT1508&nbsp;</asp:ListItem>
+                    <asp:ListItem Value="3">&nbsp;CPSC1517&nbsp;</asp:ListItem>
                     <asp:ListItem Value="4">&nbsp;DMIT2018&nbsp;</asp:ListItem>
                 </asp:RadioButtonList>
             </div>
@@ -67,7 +67,7 @@
 
              </asp:DropDownList>
              &nbsp;&nbsp;
-             <asp:LinkButton ID="LinkButtonChoice" runat="server">
+             <asp:LinkButton ID="LinkButtonChoice" runat="server" OnClick="LinkButtonChoice_Click">
                  Submit Collection Choice</asp:LinkButton>
         </div>
     </div>
