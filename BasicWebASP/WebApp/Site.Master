@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApp.SiteMaster" %>
+﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApp.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -37,8 +37,8 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
-        <%--<div class="navbar navbar-inverse navbar-fixed-top">
+        <%-- supplied default 3.3.7 menu created when the project was created --%>
+       <%-- <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -52,22 +52,23 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/HelloWorld">Hello World</a></li>
-                        <li><a runat="server" href="~/SamplePages/CommonControls">Common
-                            Controls</a></li>
+                        <li><a runat="server" href="~/SamplePages/CommonControls">Common Controls</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </div>--%>
-        <%-- replacement code for the default menu
-                    This uses the asp:Menu control
-                    This control refernces a second control containing
-                        the file name of the physical location of the actual menu
-                    The actual menu exist (in this example in the default sitemap--%>
 
-        <div class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
-           <a class="navbar-brand" runat="server" href="~/">CPSC1517-A06</a>
+        <%--  Replacement code for the default menu
+                    This uses the asp:Menu control
+                    This control references a second control containing
+                            the file name of the phyiscal location of the actual menu
+                    The actual menu exists (in this example) in the default sitemap file
+                            called Web.sitemap #e3f2fd--%>
+
+        <div class="navbar navbar-expand-md navbar-light navbar-fixed-top" style="background-color: #c0c0c0;">
+           <a class="navbar-brand" runat="server" href="~/"><strong>CPSC1517-A02</strong></a>
            <button class="navbar-toggler" type="button" data-toggle="collapse" 
                data-target="#navbarSupportedContent" 
                aria-controls="navbarSupportedContent" 
@@ -104,9 +105,8 @@
                     ShowStartingNode="false"/>
             </div>
         </div>
+
         <div class="container body-content">
-              <%--ContentPLaceHolder is equivalent to the Razor RenderSection
-                  MainContent us basically your RenderBody--%>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
