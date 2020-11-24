@@ -14,6 +14,8 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -80,7 +82,7 @@
             large size margin on your browser page
             changing the container body-context to container-fluid
             reduces the sode margins to minimal space--%>
-        <div class="container">
+        <div class="container-fluid">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <asp:Label ID="Label5" runat="server" Text="Position(s)"></asp:Label>&nbsp;
-                    </div>
+                </div>
                 <div class="col-md-5">
                     <asp:CheckBoxList ID="Jobs" runat="server">
                         

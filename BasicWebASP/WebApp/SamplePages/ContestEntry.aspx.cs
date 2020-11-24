@@ -21,6 +21,7 @@ namespace WebApp.SamplePages
         protected void Page_Load(object sender, EventArgs e)
         {
             Message.Text = "";
+            //on the first presentation of the page
             if (!Page.IsPostBack)
             {
                 if (entries.Count >0)

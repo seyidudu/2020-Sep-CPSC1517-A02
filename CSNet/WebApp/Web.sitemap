@@ -16,6 +16,8 @@
     </siteMapNode>
     <siteMapNode url="~/SamplePages/SimpleQuery.aspx" title="Simple Query"
              description=""/>
+    <siteMapNode url="~/SamplePages/GridViewCodeBehind.aspx" title="Using GridView"
+             description=""/>
     <siteMapNode url="~/Contact.aspx" title="Contact"  description="on root menu" />
     <siteMapNode url="~/About.aspx" title="About"  description="on root menu" />
   </siteMapNode>

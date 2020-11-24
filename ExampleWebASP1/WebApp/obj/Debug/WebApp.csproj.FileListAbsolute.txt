@@ -71,3 +71,4 @@ C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\ExampleWebASP1\
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\ExampleWebASP1\WebApp\obj\Debug\WebApp.csproj.CopyComplete
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\ExampleWebASP1\WebApp\obj\Debug\WebApp.dll
 C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\ExampleWebASP1\WebApp\obj\Debug\WebApp.pdb
+C:\Users\EMMANUEL OLUSEYI\Documents\GitHub\2020-Sep-CPSC1517-A02\ExampleWebASP1\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
