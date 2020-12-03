@@ -33,22 +33,22 @@ namespace WebApp.SamplePages
         protected global::System.Web.UI.WebControls.CompareValidator CompareUnitPrice;
 
         /// <summary>
-        /// CompareUnitInStock control.
+        /// ComparUnitsInStock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareUnitInStock;
+        protected global::System.Web.UI.WebControls.CompareValidator ComparUnitsInStock;
 
         /// <summary>
-        /// CompareUnitOnOrder control.
+        /// CompareUnitsOnOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareUnitOnOrder;
+        protected global::System.Web.UI.WebControls.CompareValidator CompareUnitsOnOrder;
 
         /// <summary>
         /// CompareReorderLevel control.
@@ -159,13 +159,13 @@ namespace WebApp.SamplePages
         protected global::System.Web.UI.WebControls.TextBox ProductName;
 
         /// <summary>
-        /// Label7 control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
         /// CategoryList control.
@@ -195,22 +195,13 @@ namespace WebApp.SamplePages
         protected global::System.Web.UI.WebControls.DropDownList SupplierList;
 
         /// <summary>
-        /// Label2 control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
-        /// UnitPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UnitPrice;
+        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
         /// QuantityPerUnit control.
@@ -222,6 +213,33 @@ namespace WebApp.SamplePages
         protected global::System.Web.UI.WebControls.TextBox QuantityPerUnit;
 
         /// <summary>
+        /// Label7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label7;
+
+        /// <summary>
+        /// UnitPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox UnitPrice;
+
+        /// <summary>
+        /// Label8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
+
+        /// <summary>
         /// UnitsInStock control.
         /// </summary>
         /// <remarks>
@@ -231,6 +249,15 @@ namespace WebApp.SamplePages
         protected global::System.Web.UI.WebControls.TextBox UnitsInStock;
 
         /// <summary>
+        /// Label10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label10;
+
+        /// <summary>
         /// UnitsOnOrder control.
         /// </summary>
         /// <remarks>
@@ -238,6 +265,15 @@ namespace WebApp.SamplePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox UnitsOnOrder;
+
+        /// <summary>
+        /// Label11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label11;
 
         /// <summary>
         /// ReorderLevel control.

@@ -73,13 +73,13 @@ namespace WebApp.SamplePages
                 {
                     ProductID.Text = info.ProductID.ToString();
                     ProductName.Text = info.ProductName;
-                    CategoryList.SelectedValue = info.CategoryID.HasValue ?
-                        info.CategoryID.ToString() : "0";
-                    SupplierList.SelectedValue = info.CategoryID.HasValue ?
-                        info.CategoryID.ToString() : "0";
+                    CategoryList.SelectedValue = info.CategoryID.HasValue ?info.CategoryID.ToString() : "0";
+                    SupplierList.SelectedValue = info.CategoryID.HasValue ?info.SupplierID.ToString() : "0";
                     QuantityPerUnit.Text = info.QuantityPerUnit.ToString();
                     UnitPrice.Text = string.Format("{0:0.00}", info.UnitPrice);
+                    UnitsInStock.Text = info.UnitsInStock.ToString();
                     UnitsOnOrder.Text = info.UnitsOnOrder.ToString();
+                    ReorderLevel.Text = info.ReorderLevel.ToString();
                     Discontinued.Checked = info.Discontinued;
                 }
             }
@@ -95,6 +95,61 @@ namespace WebApp.SamplePages
             {
                 MessageLabel.Text = "You require a value for the search";
             }
+        }
+
+        protected void Add_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                //collect the data and place into an instance of Product
+                Product item = new Product();
+                item.ProductName = ProductName.Text;
+                if (CategoryList.SelectedValue == "0")
+                {
+                    item.CategoryID = null;
+                }
+                else
+                {
+                    item.CategoryID = int.Parse(CategoryList.SelectedValue);
+                }
+                if (SupplierList.SelectedValue == "0")
+                {
+                    item.SupplierID = null;
+                }
+                else
+                {
+                    item.SupplierID = int.Parse(SupplierList.SelectedValue);
+                }
+                item.QuantityPerUnit = string.IsNullOrEmpty(QuantityPerUnit.Text) ? null : QuantityPerUnit.Text;
+                item.UnitPrice = string.IsNullOrEmpty(UnitPrice.Text) ? 0.00m : decimal.Parse(UnitPrice.Text);
+                item.UnitsInStock = string.IsNullOrEmpty(UnitsInStock.Text) ? (Int16)0 : Int16.Parse(UnitsInStock.Text);
+                item.UnitsOnOrder = string.IsNullOrEmpty(UnitsOnOrder.Text) ? (Int16)0 : Int16.Parse(UnitsOnOrder.Text);
+                item.ReorderLevel = string.IsNullOrEmpty(ReorderLevel.Text) ? (Int16)0 : Int16.Parse(ReorderLevel.Text);
+                item.Discontinued = false;
+
+                //within error handling call your BLL method
+                try
+                {
+                    ProductController sysmgr = new ProductController();
+                    int newProductID = sysmgr.Product_Add(item);
+                    ProductID.Text = newProductID.ToString();
+                    MessageLabel.Text = "Product has been added";
+                }
+                catch (Exception ex)
+                {
+                    MessageLabel.Text = GetInnerException(ex).Message;
+                }
+            }
+        }
+
+        protected void Update_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Disc_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
